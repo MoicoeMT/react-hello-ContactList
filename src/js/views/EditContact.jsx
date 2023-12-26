@@ -11,21 +11,24 @@ const EditContact = () => {
   const contactFilter = store.characters.find((item) => item.id == params.id);
 
   const handleUpdate = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     console.log(event.target.fullname.value);
-    actions.updateContact({
-      full_name: event.target.fullname.value,
-      email: event.target.email.value,
-      agenda_slug: "MoicoeMT",
-      address: event.target.address.value,
-      phone: event.target.phone.value,
-    }, params.id);
-    navigate("/contact")
+    actions.updateContact(
+      {
+        full_name: event.target.fullname.value,
+        email: event.target.email.value,
+        agenda_slug: "MoicoeMT",
+        address: event.target.address.value,
+        phone: event.target.phone.value,
+      },
+      params.id
+    );
+    navigate("/contact");
   };
 
   return (
     <>
-      <div >
+      <div>
         <h1 className="d-flex justify-content-center aling-item-center">
           Edit your Contact
         </h1>

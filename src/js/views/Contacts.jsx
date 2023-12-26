@@ -6,16 +6,6 @@ const Contacts = () => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
-  const handleUpdate = (event) => {
-    actions.updateContact({
-      full_name: event.target.fullname.value,
-      email: event.target.email.value,
-      agenda_slug: "MoicoeMT",
-      address: event.target.address.value,
-      phone: event.target.phone.value,
-    });
-  };
-
   return (
     <div>
       {store.characters.map((contact) => {
@@ -36,6 +26,7 @@ const Contacts = () => {
                   <h5 className="card-title mt-2">{contact.full_name}</h5>
                   <div id="botones">
                     <button
+                      id="editbutton"
                       onClick={() => navigate(`/editContact/${contact.id}`)}
                       className="btn"
                     >
